@@ -2,7 +2,7 @@ angular.module( 'FCA', [ 'ngRoute' ]);
 
 angular.module( 'FCA' ).config( function( $routeProvider ) {
     $routeProvider
-        .when( "/", {
+        .when( '/', {
             templateUrl     : '/views/home.html',
             controller      : 'homeCtrl'
         })
@@ -17,5 +17,8 @@ angular.module( 'FCA' ).config( function( $routeProvider ) {
         .when('/catalysticConvertor', {
             templateUrl     : '/views/catalysticConvertor.html',
             controller      : 'catalysticConvertorCtrl'
-        });
+        })
+        .otherwise({
+            redirectTo:'/'
+        });   
 });
