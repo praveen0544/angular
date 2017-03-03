@@ -6,15 +6,15 @@ angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
             name            : 'login',
             url             : '/',
             views: {
-                'header': {
+                'header@': {
                     templateUrl : '/views/loginHeader.html',
                     controller  : 'headerCtrl'
                 },
-                'content': {
+                'content@': {
                     templateUrl : '/views/loginContent.html',
                     controller  : 'contentCtrl'
                 },
-                'footer': {
+                'footer@': {
                     templateUrl : '/views/loginFooter.html',
                     controller  : 'footerCtrl'
                 }
@@ -97,5 +97,7 @@ angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
                 }
             }
         }); 
+
+        $urlRouterProvider.otherwise('/');
 });
 
