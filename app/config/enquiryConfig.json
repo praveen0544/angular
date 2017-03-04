@@ -1,0 +1,37 @@
+[{
+    "dataLabel": "MY",
+    "dataType": "input",
+    "required": true
+},{
+    "dataLabel": "PCS Type",
+    "dataType": "input",
+    "required": true
+},{
+    "dataLabel": "Plt",
+    "dataType": "input",
+    "required": false 
+},{
+   "dataLabel":"Fam",
+   "dataType":"input",
+    "required": false
+},{
+    "dataLabel":"Line",
+    "dataType":"input",
+    "required": false
+},{
+    "dataLabel":"Series",
+    "dataType":"input",
+    "required": false
+},{
+    "dataLabel":"Body Type",
+    "dataType":"input",
+    "required": false
+},{
+    "dataLabel":"Market",
+    "dataType":"input",
+    "required": false
+},{
+    "dataLabel":"Sales Code",
+    "dataType":"input",
+    "required": false         
+}]

@@ -128,6 +128,7 @@ section{
 .fca-nav-tabs li a{
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 .fca-nav.fca-nav-tabs li a:hover{
     background-color: rgb(72, 135, 191);
@@ -144,6 +145,7 @@ section{
     background-color: rgb(72, 135, 191);
     margin: 0;
     padding: 0;
+    z-index: 100;
 }
 .fca-header-top{
     width: 100%;
@@ -173,4 +175,18 @@ section{
 .fca-logo-small{
     float: left;
     margin-left: 1%;
+}
+.fca-enquiry-content .fca-form-row {
+    display: inline-block;
+    margin-right: 10px;
+}
+.fca-enquiry-content .fca-form-row input {
+    width:50px;
+}
+.fca-enquiry-content .fca-form-row label {
+    font-size: 12px;
+    display: inline-block;
+}
+.fca-enquiry-content{
+    margin-left: 10%;
 }
