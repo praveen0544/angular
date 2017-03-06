@@ -1,4 +1,4 @@
-angular.module( 'FCA', [ 'ui.router', 'ngAnimate' ]);
+angular.module( 'FCA', [ 'ui.router', 'ngAnimate', 'ui.grid', 'ui.grid.selection' ]);
 
 angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
     $stateProvider
@@ -47,15 +47,19 @@ angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
                 },
                 'content': {
                     templateUrl : '/views/whereUsed.html',
-                    controller  : 'whereUsedCtrl'
+                    controller  : 'whereUsedCtrl',
+                    controllerAs : 'vm'
                 },
                 'footer': {
                     templateUrl : '/views/footer.html',
                     controller  : 'footerCtrl'
+                },
+                'enquiry@':{
+                    templateUrl: '/views/enquiry.html',
+                    controller: 'enquiryConfigCtrl'
                 }
             }
         }).state('asOrder', {
-            abstract        : true,
             name            : 'asOrder',
             url             : '/asOrder',
             views: {
@@ -73,7 +77,7 @@ angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
                 }
             }
         }).state('asOrder.submenu', {
-            url : '/submenu',
+            url : '/submenu1',
             views: {
                 'submenu@asOrder': {
                     template : '<h1>Sub Menu</h1>'

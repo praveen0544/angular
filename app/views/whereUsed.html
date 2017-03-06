@@ -1,3 +1,18 @@
-<div>
-    <h1>Where Used</h1>
+<div class="fca-whereused-container">
+    <!--<div ui-view="enquiry"></div>-->
+    <div class="fca-enquiry" ng-controller="enquiryConfigCtrl as vm">
+        <div class="fca-enquiry-content">
+            <div class="fca-form-row" ng-repeat="formdata in vm.data">
+                <label>{{formdata.dataLabel}}</label>
+                <input type="{{formdata.dataType}}" />
+            </div>
+            <div class="fca-form-row">
+                <input type="button" value="Extract" />
+                <input type="button" value="Inquire" />
+            </div>
+        </div>
+    </div>
+    <div class="fca-grid-data">
+        <div ui-grid="vm.gridOptions" class="grid"></div>
+    </div>
 </div>
