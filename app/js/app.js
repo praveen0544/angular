@@ -1,4 +1,4 @@
-angular.module( 'FCA', [ 'ui.router', 'ngAnimate', 'ui.grid', 'ui.grid.selection' ]);
+angular.module( 'FCA', [ 'ui.router', 'ngAnimate', 'ui.grid', 'ui.grid.selection', 'ui.grid.grouping' ]);
 
 angular.module( 'FCA' ).config(function($stateProvider, $urlRouterProvider){
     $stateProvider

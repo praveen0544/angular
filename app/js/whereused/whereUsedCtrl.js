@@ -1,10 +1,12 @@
 angular.module('FCA').controller( 'whereUsedCtrl', whereUsedCtrl );
 
-whereUsedCtrl.$inject = [ '$scope', 'whereUsedSvc', 'uiGridConstants' ];
+whereUsedCtrl.$inject = [ '$scope', 'whereUsedSvc', 'enquiryConfigSvc', 'uiGridConstants', 'uiGridGroupingConstants' ];
 
-function whereUsedCtrl( $scope, whereUsedSvc, uiGridConstants ){
+function whereUsedCtrl( $scope, whereUsedSvc, enquiryConfigSvc, uiGridConstants, uiGridGroupingConstants ){
     var vm = this;
     vm.gridData = [];
+    vm.configData = [];
+    vm.formJson = {};
 
     var columnDefs = [
         { name: 'MY' },
@@ -43,20 +45,26 @@ function whereUsedCtrl( $scope, whereUsedSvc, uiGridConstants ){
         data: vm.gridData
     };
 
-    whereUsedSvc.whereUsedSvcObj().then(function(response){
-        //vm.gridOptions.columnDefs = columnDefs;
-       // vm.gridOptions.data = response.data;
-        vm.gridOptions = {
-            enableRowSelection: true,
-            enableSelectAll: true,
-            selectionRowHeaderWidth: 35,
-            enableGroupHeaderSelection: false,
-            rowHeight: 35,
-            showGridFooter:true,
-            columnDefs: columnDefs,
-            data: response.data
-        };
+    enquiryConfigSvc.enquiryConfigSvcObj().then(function(response){
+        vm.configData = response.data;
     });
+
+    vm.populateTableData = function(){
+        whereUsedSvc.whereUsedSvcObj().then(function(response){
+            vm.gridOptions = {
+                columnDefs: columnDefs,
+                data: response.data
+            };
+        });
+    };
+
+    vm.enquiryForm = function(enquiryType){
+        console.log(enquiryType);   // Enquiry type
+        console.log(vm.formJson); // Enquiry Form Data
+        vm.populateTableData();
+    };
+
+    console.log(vm);
 
     return vm;
 

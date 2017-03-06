@@ -18,4 +18,24 @@
     "VSC":6120400,
     "Logon":"TR902SG",
     "Add Date":"6/15/2016"
+},{
+    "MY": 2017,
+    "PCS Type": "S",
+    "Plt":"WW",
+    "Fam":"LA",
+    "Line":"D",
+    "Series":"H",
+    "Body Style":22,
+    "Mkt":"B",
+    "Rel":"A01",
+    "Part":"55112463AC",
+    "Desc":"SEAL ASSY FENDER TO COWL SIDET LT NONE",
+    "NDS String":"ST",
+    "Usage":1,
+    "UoM":"EA",
+    "Line Up":"00VA WW",
+    "UPG":"11A01",
+    "VSC":6120400,
+    "Logon":"TR902SG",
+    "Add Date":"6/15/2016"
 }]

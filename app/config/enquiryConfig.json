@@ -1,37 +1,46 @@
 [{
     "dataLabel": "MY",
     "dataType": "input",
+    "dataKey": "my",
     "required": true
 },{
     "dataLabel": "PCS Type",
     "dataType": "input",
+    "dataKey": "pcsType",
     "required": true
 },{
     "dataLabel": "Plt",
     "dataType": "input",
+    "dataKey": "plt",
     "required": false 
 },{
    "dataLabel":"Fam",
    "dataType":"input",
+   "dataKey": "fam",
     "required": false
 },{
     "dataLabel":"Line",
     "dataType":"input",
+    "dataKey": "line",
     "required": false
 },{
     "dataLabel":"Series",
     "dataType":"input",
+    "dataKey": "series",
     "required": false
 },{
     "dataLabel":"Body Type",
     "dataType":"input",
+    "dataKey": "bodyType",
     "required": false
 },{
     "dataLabel":"Market",
     "dataType":"input",
+    "dataKey": "market",
     "required": false
 },{
     "dataLabel":"Sales Code",
     "dataType":"input",
+    "dataKey": "salesCode",
     "required": false         
 }]
