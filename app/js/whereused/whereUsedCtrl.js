@@ -7,9 +7,11 @@ function whereUsedCtrl( $scope, whereUsedSvc, enquiryConfigSvc, uiGridConstants,
     vm.gridData = [];
     vm.configData = [];
     vm.formJson = {};
+    vm.gridApi = [];
+    vm.updatedRow = [];
 
     var columnDefs = [
-        { name: 'MY' },
+        { name: 'MY'},
         { name: 'PCS Type'},
         { name: 'Plt' },
 		{ name: 'Fam' },
@@ -49,8 +51,14 @@ function whereUsedCtrl( $scope, whereUsedSvc, enquiryConfigSvc, uiGridConstants,
         vm.configData = response.data;
     });
 
-    vm.populateTableData = function(){
-        whereUsedSvc.whereUsedSvcObj().then(function(response){
+    vm.populateTableData = function(data){
+
+        var options = {
+            method: 'POST',
+            data: data
+        };
+
+        whereUsedSvc.whereUsedSvcObj(options).then(function(response){
             vm.gridOptions = {
                 columnDefs: columnDefs,
                 data: response.data
@@ -58,13 +66,61 @@ function whereUsedCtrl( $scope, whereUsedSvc, enquiryConfigSvc, uiGridConstants,
         });
     };
 
+
+    vm.gridOptions.onRegisterApi = function(gridApi){
+        console.log('here');
+        console.log(gridApi);
+
+        vm.gridApi = gridApi;
+
+        gridApi.selection.on.rowSelectionChanged($scope, function(row){
+            var msg = 'row selected ' + row.isSelected;
+            console.log(row);
+        });
+
+        gridApi.selection.on.rowSelectionChangedBatch($scope, function(rows){
+            var msg = 'rows changed ' + rows.length;
+            console.log(rows);  
+        });
+
+        gridApi.edit.on.afterCellEdit($scope, function( rowEntity, colDef, newValue, oldValue ){
+            vm.lastCellEdited = ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue ;
+            console.log(vm.lastCellEdited);
+            vm.updatedRow.push(rowEntity);
+            vm.enquiryFormEdit(rowEntity);
+        });
+
+    };
+
+
+    //Enquiry Form Extract and Inquiry
     vm.enquiryForm = function(enquiryType){
         console.log(enquiryType);   // Enquiry type
         console.log(vm.formJson); // Enquiry Form Data
-        vm.populateTableData();
+        vm.populateTableData(vm.formJson);
     };
 
-    console.log(vm);
+
+    vm.enquiryFormUpdate = function(type){
+        console.log(type);
+        console.log(vm.gridApi);
+        vm.updateSelectData();
+    };
+
+    vm.updateSelectData = function(){
+        
+    }
+
+    vm.enquiryFormEdit = function(updatedRow){
+        console.log(updatedRow);
+        vm.updateSelectEdit(updatedRow);
+    };
+
+    vm.updateSelectEdit = function(updatedRow){
+        
+    }
+    
+
 
     return vm;
 

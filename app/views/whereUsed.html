@@ -8,13 +8,18 @@
                     <input type="{{formdata.dataType}}" ng-model="vm.formJson[formdata.dataKey]" />
                 </div>
                 <div class="fca-form-row">
-                    <input type="submit" id="Extract" value="Extract" ng-click="vm.enquiryForm('Extract')" />
-                    <input type="submit" id="Inquire" value="Inquire" ng-click="vm.enquiryForm('Inquire')" />
+                    <input type="submit" id="Extract" value="Extract" ng-click="vm.enquiryForm('extract')" />
+                    <input type="submit" id="Inquire" value="Inquire" ng-click="vm.enquiryForm('inquire')" />
                 </div>
             </form>
         </div>
     </div>
     <div class="fca-grid-data">
-        <div ui-grid="vm.gridOptions" class="grid" ui-grid-selection ui-grid-grouping></div>
+        <div ui-grid="vm.gridOptions" class="grid" ui-grid-selection ui-grid-grouping ui-grid-edit></div>
     </div>
+
+    <div class="fca-update-container">
+        <input type="button" id="Update" value="Update" ng-click="vm.enquiryFormUpdate('update')" />
+    </div>
+
 </div>
